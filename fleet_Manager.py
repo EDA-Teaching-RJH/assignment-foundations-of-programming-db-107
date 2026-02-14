@@ -2,14 +2,20 @@
 
 #init_database():
 #Returns 4 lists pre-populated with at least 5 Star Trek characters and their data.
+
 n = ["Jean-Luc", "Spock", "Kathryn", "Montgonmery", "Worf"]
 r = ["Captain", "Commander", "Lieutenant Commander"]
 d = ["Command", "Science", "Operations (Engineering)", "Operations (Security)"]
 p = ["SP-937-215", "S-179-276", "NJ-573-219", "SE-197-54T", "KCD-445-31"]
 
+captains = ["Jean-Luc","Kathryn"]
+commaders = ["Spock"]
+lcommanders = ["Montgomery","Worf"]
+
 #display_menu():
 #Queries users full name, Prints the options and current student logged in and returns the user's choice.
 #LIST OF OPTIONS
+
 active = True
 
 
@@ -46,8 +52,10 @@ def fleet_manager():
         if opt == "1":
             print("Current Member List")
 
-            for i in range (10):
+            for i in range (16):
                 print(n[i] + " - " + r[i])
+#issue with "r[i]"
+
 
 #add_members(names, ranks, divs, ids)
 
@@ -83,9 +91,13 @@ def fleet_manager():
 
             idx = n.index(remove)
             n.pop(idx)
+            idx = r.index(remove)
             r.pop(idx)
+            idx = d.index(remove)
             d.pop(idx)
+            idx = p.index(remove)
             p.pop(idx)
+            
             print("Removed Member.")
             
 #update_rank(names, ranks, ids):
@@ -110,12 +122,28 @@ def fleet_manager():
     
 #Asks user for "Command", "Operations", or "Sciences".
 #Prints only members in that division using `match` or `if` .
-        #elif opt == "7":
+        elif opt == "7":
+
+            name = input("Input division: ").capitalize()  
+            
+            if name == "Command":
+                print("Jean-Luc","\nKathryn")
+            
+            elif name == "Science":
+                print("Spock")
+            
+            elif name == "Operations":
+                print("Montgomery (Engineering)","\nWorf (Security)")
+            
+            else:
+                print("Invalid","\nEnter a Valid Division")
+
 #count_officers(ranks)`:
     
 #Counts how many "Captain" and "Commander" ranks exist and returns the integer.
-        #elif opt == "8":
-        
+        elif opt == "8":
+            print("void")
+
         
         elif opt == "9":
             print("Shutting down.")
