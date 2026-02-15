@@ -9,7 +9,7 @@ n = ["Jean-Luc", "Spock", "Kathryn", "Montgonmery", "Worf"]
 #lcommander = ["Montgomery","Worf"]
 r = ["Captain", "Commander", "Captain", "Lieutenant Commander", "Lieutenant Commander"]
 d = ["Command", "Science", "Command", "Operations (Engineering)", "Operations (Security)"]
-p = ["SP-937-215", "S-179-276", "NJ-573-219", "SE-197-54T", "KCD-445-31"]
+id = ["SP-937-215", "S-179-276", "NJ-573-219", "SE-197-54T", "KCD-445-31"]
 
 
 
@@ -41,20 +41,24 @@ def fleet_manager():
         print("2. Add members")
         print("3. Remove members")
         print("4. Update ranks")
-        print("5. Search members")
-        print("6. Filter by Division")
-        print("7. Count ranks")
+        print("5. Payrole")
+        print("6. Search Members")
+        print("7. Filter by Division")
+        print("8. Count ranks")
         print("9. Exit")
         
-        
+
+#display_roster(names, ranks, divs, ids):
+    
+#Iterates through the lists using `range(len(names))`.
+#Prints a formatted table of all crew.
         opt = input("Select Option: ")
 
         if opt == "1":
             print("Current Member List")
 
             for i in range(len(n)):
-                print(n[i] + " - " + r[i] + " - " + d[i] + " - " + p[i])
-#issue with "r[i]"
+                print(n[i] + " - " + r[i] + " - " + d[i] + " - " + id[i])
 
 
 #add_members(names, ranks, divs, ids)
@@ -66,7 +70,7 @@ def fleet_manager():
             new_name = input("Enter Name: ")
             new_rank = input("Enter Rank: ")
             new_div = input("Enter Division: ")
-            new_id = input("Enter ID in format ##-###-##(#)" "Enter ID: ")
+            new_id = input("Enter ID in format ##(#)-###-##(#)" "Enter ID: ")
 
             
             n.append(new_name)
@@ -78,17 +82,8 @@ def fleet_manager():
             d.append(new_div)
             print("New Division added.")
             
-            p.append(new_id)
+            id.append(new_id)
             print("New ID added.")
-
-#calculate_payroll(ranks)`:
-    
-#    -   Iterates through the ranks list.
-        
-#    -   Assigns a credit value to ranks (e.g., Captain = 1000, Ensign = 200).
-        
-#    -   Returns the total cost of the crew.
-
 
 
 #remove_member(names, ranks, divs, ids):
@@ -105,22 +100,34 @@ def fleet_manager():
             r.pop(idx)
             idx = d.index(remove)
             d.pop(idx)
-            idx = p.index(remove)
-            p.pop(idx)
+            idx = id.index(remove)
+            id.pop(idx)
             
             print("Removed Member.")
             
+
 #update_rank(names, ranks, ids):
 
 #Finds a member by ID.
 #Updates their rank string.
-        #elif opt == "4":
+        elif opt == "4":
+            locate = input("Enter Members Name To Update: ").capitalize()
+            
+            idx = n.index(locate)
+            new_rank = input("Enter New Rank: ").capitalize()
+            r[idx] = new_rank
+            print("Rank Updated:", new_rank)
+            
 
-#display_roster(names, ranks, divs, ids):
+#calculate_payroll(ranks)`:
     
-#Iterates through the lists using `range(len(names))`.
-#Prints a formatted table of all crew.
+#    -   Iterates through the ranks list.
+        
+#    -   Assigns a credit value to ranks (e.g., Captain = 1000, Ensign = 200).
+        
+#    -   Returns the total cost of the crew.
         #elif opt == "5":
+
 
 #search_crew(names, ranks, divs, ids):
     
@@ -163,6 +170,7 @@ def fleet_manager():
             print("Number of Commanders: " + str(count))
 
 
+
         elif opt == "9":
             print("Shutting down.")
             break
@@ -171,4 +179,3 @@ def fleet_manager():
             print("Invalid Option.")
 
 fleet_manager()
-    
