@@ -126,7 +126,21 @@ def fleet_manager():
 #    -   Assigns a credit value to ranks (e.g., Captain = 1000, Ensign = 200).
         
 #    -   Returns the total cost of the crew.
-        #elif opt == "5":
+        elif opt == "5":
+            captain = int(2500)
+            commander = int(1750)
+            lcommander = int(1000)
+            
+            total = 0
+            for rank in r:
+                if rank == "Captain":
+                    total += captain
+                if rank == "Commander":
+                    total += commander
+                if rank == "Lieutenant Commander":
+                    total += lcommander
+
+            print("Total Credits: ", total)
 
 
 #search_crew(names, ranks, divs, ids):
