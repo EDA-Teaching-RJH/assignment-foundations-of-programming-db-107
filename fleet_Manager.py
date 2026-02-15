@@ -133,7 +133,14 @@ def fleet_manager():
     
 #Asks for a search term.
 #Prints any crew member whose name contains that term.
-        #elif opt == "6":
+        elif opt == "6":
+            search = input("Search term related to members: ").capitalize()
+            
+            for i in range(len(n)):
+                if search == n.index:
+                
+                    print(n[i] + " - " + r[i] + " - " + d[i] + " - " + id[i])
+
 
 #filter_by_division(names, divs):
     
