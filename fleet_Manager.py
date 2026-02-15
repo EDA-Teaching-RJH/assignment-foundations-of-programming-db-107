@@ -8,7 +8,7 @@ n = ["Jean-Luc", "Spock", "Kathryn", "Montgonmery", "Worf"]
 #commander = ["Spock"]
 #lcommander = ["Montgomery","Worf"]
 r = ["Captain", "Commander", "Captain", "Lieutenant Commander", "Lieutenant Commander"]
-d = ["Command", "Science", "Command", "Operations (Engineering)", "Operations (Security)"]
+d = ["Command", "Science", "Command", "Engineering", "Security"]
 id = ["SP-937-215", "S-179-276", "NJ-573-219", "SE-197-54T", "KCD-445-31"]
 
 
@@ -134,12 +134,47 @@ def fleet_manager():
 #Asks for a search term.
 #Prints any crew member whose name contains that term.
         elif opt == "6":
-            search = input("Search term related to members: ").capitalize()
-            
-            for i in range(len(n)):
-                if search == n.index:
+            term = input("Input Members Info To Search: ").capitalize()
+
+            jean_luc = print("Jean-Luc", " - ", "Captain", " - ", "Command", " - ", "SP-937-215")
+            kathryn = print("Kathryn", " - ", "Captain", " - ", "Command", " - ", "NJ-573-219")
+            spock = print("Spock", " - ", "Commander"," - ", "Science", " - ", "S-179-276")
+            montgonmery = print("Montgonmery", " - ", "Lieutenant Commander", " - ", "Engineering", " - ", "SE-197-54T")
+            worf = print("Worf", " - ", "Lieutenant Commander", " - ", "Security", " - ", "KCD-445-31")
+
+            match term:
+                case "Jean-Luc"|"SP-937-215":
+                    print(jean_luc)
                 
-                    print(n[i] + " - " + r[i] + " - " + d[i] + " - " + id[i])
+                case "Kathryn"|"NJ-573-219":
+                    print(kathryn)
+
+                case "Spock"|"Commander"|"Science"|"S-179-276":
+                    print(spock)
+                
+                case "Montgonmery"|"Engineering"|"SE-197-54T":
+                    print(montgonmery)
+                
+                case "Worf"|"Security"|"KCD-445-31":
+                    print(worf)
+                
+                case "Captain":
+                    print(jean_luc,"\n",kathryn)
+                
+                case "Command":
+                    print(jean_luc,"\n", kathryn)
+
+                case "Lieutenant Commander":
+                    print(montgonmery, "\n", worf)
+
+                case _:
+                    print("Invalid, Name Not Found")
+            
+
+#search = input("Search term related to members: ").capitalize()
+#for i in range(len(n)):
+#if search == n.index:
+#print(n[i] + " - " + r[i] + " - " + d[i] + " - " + id[i])
 
 
 #filter_by_division(names, divs):
