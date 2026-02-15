@@ -134,13 +134,13 @@ def fleet_manager():
 #Asks for a search term.
 #Prints any crew member whose name contains that term.
         elif opt == "6":
+            jean_luc = 'Jean-Luc - Captain - Command - SP-937-215'
+            kathryn = 'Kathryn - Captain - Command - NJ-573-219'
+            spock = 'Spock - Commander - Science - S-179-276'
+            montgonmery = 'Montgonmery - Lieutenant Commander - Engineering - SE-197-54T'
+            worf = 'Worf - Lieutenant Commander - Security - KCD-445-31'
+            
             term = input("Input Members Info To Search: ").capitalize()
-
-            jean_luc = print("Jean-Luc", " - ", "Captain", " - ", "Command", " - ", "SP-937-215")
-            kathryn = print("Kathryn", " - ", "Captain", " - ", "Command", " - ", "NJ-573-219")
-            spock = print("Spock", " - ", "Commander"," - ", "Science", " - ", "S-179-276")
-            montgonmery = print("Montgonmery", " - ", "Lieutenant Commander", " - ", "Engineering", " - ", "SE-197-54T")
-            worf = print("Worf", " - ", "Lieutenant Commander", " - ", "Security", " - ", "KCD-445-31")
 
             match term:
                 case "Jean-Luc"|"SP-937-215":
@@ -164,7 +164,7 @@ def fleet_manager():
                 case "Command":
                     print(jean_luc,"\n", kathryn)
 
-                case "Lieutenant Commander":
+                case "Lieutenant":
                     print(montgonmery, "\n", worf)
 
                 case _:
