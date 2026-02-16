@@ -67,10 +67,10 @@ def fleet_manager():
 #Validates Rank is a valid TNG rank.
 #Appends data to all 4 lists.
         elif opt == "2":
-            new_name = input("Enter Name: ")
-            new_rank = input("Enter Rank: ")
-            new_div = input("Enter Division: ")
-            new_id = input("Enter ID in format ##(#)-###-##(#)" "Enter ID: ")
+            new_name = input("Enter Name: ").capitalize()
+            new_rank = input("Enter Rank: ").capitalize()
+            new_div = input("Enter Division: ").capitalize()
+            new_id = input("Enter ID in format ##(#)-###-##(#)" "Enter ID: ").upper()
 
             
             n.append(new_name)
@@ -92,15 +92,12 @@ def fleet_manager():
 #Finds the index.
 #Removes the entry from _all 4 lists_ to keep them in sync.
         elif opt == "3":
-            remove = input("Enter Name to Remove ")
+            remove = input("Enter Name to Remove: ").capitalize()
 
             idx = n.index(remove)
             n.pop(idx)
-            idx = r.index(remove)
             r.pop(idx)
-            idx = d.index(remove)
             d.pop(idx)
-            idx = id.index(remove)
             id.pop(idx)
             
             print("Removed Member.")
